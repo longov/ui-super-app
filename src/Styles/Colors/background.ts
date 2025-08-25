@@ -1,0 +1,59 @@
+import Colors from './colors'
+
+export enum EBackground {
+  'BACKGROUND_APP' = 'BACKGROUND_APP',
+  'BACKGROUND_1' = 'BACKGROUND_1',
+  'BACKGROUND_1_ACTIVE' = 'BACKGROUND_1_ACTIVE',
+  'BACKGROUND_2' = 'BACKGROUND_2',
+  'BACKGROUND_2_ACTIVE' = 'BACKGROUND_2_ACTIVE',
+  'BACKGROUND_3' = 'BACKGROUND_3',
+  'BACKGROUND_3_ACTIVE' = 'BACKGROUND_3_ACTIVE',
+  'BACKGROUND_INVERSE' = 'BACKGROUND_INVERSE',
+  'BACKGROUND_BRAND' = 'BACKGROUND_BRAND',
+  'BACKGROUND_INFORMATIVE' = 'BACKGROUND_INFORMATIVE',
+  'BACKGROUND_INFORMATION' = 'BACKGROUND_INFORMATION',
+  'BACKGROUND_SUCCESS' = 'BACKGROUND_SUCCESS',
+  'BACKGROUND_ERROR' = 'BACKGROUND_ERROR',
+  'BACKGROUND_WARNING' = 'BACKGROUND_WARNING',
+  'CARD_BACKGROUND' = 'BACKGROUND_CARD_BACKGROUND',
+  'BACKGROUND_ALPHA' = 'BACKGROUND_ALPHA'
+}
+
+export const BACKGROUND = {
+  dark: {
+    [EBackground.BACKGROUND_APP]: Colors.ng100,
+    [EBackground.BACKGROUND_1]: Colors.ng100,
+    [EBackground.BACKGROUND_1_ACTIVE]: Colors.ng95,
+    [EBackground.BACKGROUND_2]: Colors.ng92,
+    [EBackground.BACKGROUND_2_ACTIVE]: Colors.ng90,
+    [EBackground.BACKGROUND_3]: Colors.ng90,
+    [EBackground.BACKGROUND_3_ACTIVE]: Colors.ng85,
+    [EBackground.BACKGROUND_INVERSE]: Colors.ng8,
+    [EBackground.BACKGROUND_BRAND]: Colors.y40,
+    [EBackground.BACKGROUND_INFORMATIVE]: Colors.b85,
+    [EBackground.BACKGROUND_INFORMATION]: Colors.b85,
+    [EBackground.BACKGROUND_SUCCESS]: Colors.gr90,
+    [EBackground.BACKGROUND_ERROR]: Colors.r90,
+    [EBackground.BACKGROUND_WARNING]: Colors.or90,
+    [EBackground.CARD_BACKGROUND]: Colors.white_a5,
+    [EBackground.BACKGROUND_ALPHA]: Colors.white_a5
+  },
+  light: {
+    [EBackground.BACKGROUND_APP]: Colors.ng5,
+    [EBackground.BACKGROUND_1]: Colors.ng5,
+    [EBackground.BACKGROUND_1_ACTIVE]: Colors.black_a5,
+    [EBackground.BACKGROUND_2]: Colors.ng1,
+    [EBackground.BACKGROUND_2_ACTIVE]: Colors.black_a5,
+    [EBackground.BACKGROUND_3]: Colors.white_a100,
+    [EBackground.BACKGROUND_3_ACTIVE]: Colors.black_a5,
+    [EBackground.BACKGROUND_INVERSE]: Colors.ng92,
+    [EBackground.BACKGROUND_BRAND]: Colors.y40,
+    [EBackground.BACKGROUND_INFORMATIVE]: Colors.b10,
+    [EBackground.BACKGROUND_INFORMATION]: Colors.b10,
+    [EBackground.BACKGROUND_SUCCESS]: Colors.gr15,
+    [EBackground.BACKGROUND_ERROR]: Colors.r15,
+    [EBackground.BACKGROUND_WARNING]: Colors.or15,
+    [EBackground.CARD_BACKGROUND]: Colors.white_a100,
+    [EBackground.BACKGROUND_ALPHA]: Colors.ng1
+  }
+}

@@ -1,0 +1,27 @@
+import { convertPxToPt } from './utils';
+
+
+export enum ESpacing {
+  space0 = convertPxToPt(0),
+  space12 = convertPxToPt(1),
+  space25 = convertPxToPt(2),
+  space50 = convertPxToPt(4),
+  space75 = convertPxToPt(6),
+  space100 = convertPxToPt(8),
+  space150 = convertPxToPt(12),
+  space200 = convertPxToPt(16),
+  space250 = convertPxToPt(20),
+  space300 = convertPxToPt(24),
+  space350 = convertPxToPt(28),
+  space400 = convertPxToPt(32),
+  space500 = convertPxToPt(40),
+  space600 = convertPxToPt(48),
+  space700 = convertPxToPt(56),
+  space800 = convertPxToPt(64),
+  space900 = convertPxToPt(72),
+  space1000 = convertPxToPt(80),
+  space1100 = convertPxToPt(88),
+  space1200 = convertPxToPt(96),
+  space1400 = convertPxToPt(112),
+  space1600 = convertPxToPt(128),
+}
