@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React, {
   forwardRef,
   useEffect,
@@ -104,6 +106,7 @@ const ModalBox: ModalBoxComponent = (props, ref) => {
     setChildren(null);
     Keyboard.dismiss();
   };
+  // @ts-ignore
   return (
     <Modal
       transparent

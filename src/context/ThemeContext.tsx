@@ -60,6 +60,7 @@ export const ThemeProvider: FC<
     [useTheme, getThemeMode, textUI, textTitle, textDefault, themeMode]
   );
   return (
+    // eslint-disable-next-line react-native/no-inline-styles
     <GestureHandlerRootView style={{ flex: 1 }}>
       <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
     </GestureHandlerRootView>

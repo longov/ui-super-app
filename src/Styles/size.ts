@@ -1,4 +1,4 @@
-import { convertPxToPt } from 'common/Styles/utils.ts'
+import { convertPxToPt } from './utils';
 
 export enum ESIZE {
   size_025 = convertPxToPt(2),
@@ -18,5 +18,5 @@ export enum ESIZE {
   size_1100 = convertPxToPt(88),
   size_1200 = convertPxToPt(96),
   size_1400 = convertPxToPt(112),
-  size_1600 = convertPxToPt(128)
+  size_1600 = convertPxToPt(128),
 }

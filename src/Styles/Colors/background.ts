@@ -1,4 +1,4 @@
-import Colors from './colors'
+import Colors from './colors';
 
 export enum EBackground {
   'BACKGROUND_APP' = 'BACKGROUND_APP',
@@ -16,7 +16,7 @@ export enum EBackground {
   'BACKGROUND_ERROR' = 'BACKGROUND_ERROR',
   'BACKGROUND_WARNING' = 'BACKGROUND_WARNING',
   'CARD_BACKGROUND' = 'BACKGROUND_CARD_BACKGROUND',
-  'BACKGROUND_ALPHA' = 'BACKGROUND_ALPHA'
+  'BACKGROUND_ALPHA' = 'BACKGROUND_ALPHA',
 }
 
 export const BACKGROUND = {
@@ -36,7 +36,7 @@ export const BACKGROUND = {
     [EBackground.BACKGROUND_ERROR]: Colors.r90,
     [EBackground.BACKGROUND_WARNING]: Colors.or90,
     [EBackground.CARD_BACKGROUND]: Colors.white_a5,
-    [EBackground.BACKGROUND_ALPHA]: Colors.white_a5
+    [EBackground.BACKGROUND_ALPHA]: Colors.white_a5,
   },
   light: {
     [EBackground.BACKGROUND_APP]: Colors.ng5,
@@ -54,6 +54,6 @@ export const BACKGROUND = {
     [EBackground.BACKGROUND_ERROR]: Colors.r15,
     [EBackground.BACKGROUND_WARNING]: Colors.or15,
     [EBackground.CARD_BACKGROUND]: Colors.white_a100,
-    [EBackground.BACKGROUND_ALPHA]: Colors.ng1
-  }
-}
+    [EBackground.BACKGROUND_ALPHA]: Colors.ng1,
+  },
+};

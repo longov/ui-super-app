@@ -1,6 +1,5 @@
 import { convertPxToPt } from './utils';
 
-
 export enum ESpacing {
   space0 = convertPxToPt(0),
   space12 = convertPxToPt(1),

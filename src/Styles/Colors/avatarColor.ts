@@ -1,4 +1,4 @@
-import Colors from './colors'
+import Colors from './colors';
 
 export enum EBackgroundAvatar {
   AVATAR_BACKGROUND_1 = 'AVATAR_BACKGROUND_1',
@@ -12,7 +12,7 @@ export enum EBackgroundAvatar {
   AVATAR_BACKGROUND_9 = 'AVATAR_BACKGROUND_9',
   AVATAR_BACKGROUND_10 = 'AVATAR_BACKGROUND_10',
   AVATAR_BACKGROUND_11 = 'AVATAR_BACKGROUND_11',
-  AVATAR_BACKGROUND_12 = 'AVATAR_BACKGROUND_12'
+  AVATAR_BACKGROUND_12 = 'AVATAR_BACKGROUND_12',
 }
 
 export const BACKGROUND_AVATAR_COLORS = {
@@ -21,13 +21,13 @@ export const BACKGROUND_AVATAR_COLORS = {
     [EBackgroundAvatar.AVATAR_BACKGROUND_2]: Colors.ng100,
     [EBackgroundAvatar.AVATAR_BACKGROUND_3]: Colors.ng95,
     [EBackgroundAvatar.AVATAR_BACKGROUND_4]: Colors.ng92,
-    [EBackgroundAvatar.AVATAR_BACKGROUND_5]: Colors.ng90
+    [EBackgroundAvatar.AVATAR_BACKGROUND_5]: Colors.ng90,
   },
   light: {
     [EBackgroundAvatar.AVATAR_BACKGROUND_1]: Colors.ng30,
     [EBackgroundAvatar.AVATAR_BACKGROUND_2]: Colors.ng100,
     [EBackgroundAvatar.AVATAR_BACKGROUND_3]: Colors.ng95,
     [EBackgroundAvatar.AVATAR_BACKGROUND_4]: Colors.ng92,
-    [EBackgroundAvatar.AVATAR_BACKGROUND_5]: Colors.ng90
-  }
-}
+    [EBackgroundAvatar.AVATAR_BACKGROUND_5]: Colors.ng90,
+  },
+};

@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import { AppState, AppStateStatus } from 'react-native';
+import { useEffect, useState } from 'react';
+import { AppState, type AppStateStatus } from 'react-native';
 
 const useAppState = (): AppStateStatus | undefined => {
   const [state, setState] = useState<AppStateStatus | undefined>(
@@ -22,7 +22,7 @@ const useAppState = (): AppStateStatus | undefined => {
   return state;
 };
 
-export const useAppStateRecover = (func: () => void, deps: any[] = []) => {
+export const useAppStateRecover = (func: () => void) => {
   useEffect(() => {
     const listener = AppState.addEventListener('change', (nextState) => {
       if (nextState === 'active') {
@@ -33,7 +33,7 @@ export const useAppStateRecover = (func: () => void, deps: any[] = []) => {
     return () => {
       listener.remove();
     };
-  }, deps);
+  }, [func]);
 
   return;
 };

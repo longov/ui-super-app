@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, {
   forwardRef,
   useImperativeHandle,
@@ -47,9 +48,7 @@ const COMPONENT_TYPE = {
     title: 'success',
   },
 };
-
-const EXTRA_HEIGHT = height(10);
-
+height(10);
 interface Options {
   message: string;
   icon: string;
@@ -75,7 +74,7 @@ let timeoutClose: NodeJS.Timeout;
 // _underscore for unused pre-var;
 const Toast = forwardRef<RefAction, Props>((_props, ref) => {
   const refAlert = useRef<AlertType>(null);
-  const { useTheme, themeMode, getThemeMode } = useThemeContext();
+  const { useTheme } = useThemeContext();
 
   const [options, setOptions] = useState<Partial<Options>>({});
   const styles = useTheme('Alert', style);

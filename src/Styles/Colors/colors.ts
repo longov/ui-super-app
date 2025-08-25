@@ -16,8 +16,8 @@ const NEUTRAL_GRAY = {
   ng90: '#2E2E2E',
   ng92: '#242424',
   ng95: '#1A1A1A',
-  ng100: '#0F0F0F'
-}
+  ng100: '#0F0F0F',
+};
 
 //White
 const WHITE = {
@@ -41,8 +41,8 @@ const WHITE = {
   white_a15: '#FFFFFF26', // rgba(255, 255, 255, 0.15)
   white_a10: '#FFFFFF1A', // rgba(255, 255, 255, 0.10)
   white_a5: '#FFFFFF0D', // rgba(255, 255, 255, 0.05)
-  white_a0: '#FFFFFF00' // rgba(255, 255, 255, 0.00)
-}
+  white_a0: '#FFFFFF00', // rgba(255, 255, 255, 0.00)
+};
 
 //Black
 const BLACK = {
@@ -66,8 +66,8 @@ const BLACK = {
   black_a15: '#00000026', // rgba(0, 0, 0, 0.15)
   black_a10: '#0000001A', // rgba(0, 0, 0, 0.10)
   black_a5: '#0000000D', // rgba(0, 0, 0, 0.05)
-  black_a0: '#00000000' // rgba(0, 0, 0, 0.00)
-}
+  black_a0: '#00000000', // rgba(0, 0, 0, 0.00)
+};
 
 // Yellow
 const YELLOW = {
@@ -85,8 +85,8 @@ const YELLOW = {
   y85: '#876603',
   y90: '#6A5101',
   y95: '#4D3A00',
-  y100: '#2E2300'
-}
+  y100: '#2E2300',
+};
 
 //Red
 const RED = {
@@ -104,8 +104,8 @@ const RED = {
   r85: '#781C11',
   r90: '#5E150D',
   r95: '#430F0A',
-  r100: '#2D0A06'
-}
+  r100: '#2D0A06',
+};
 
 //Orange
 const ORANGE = {
@@ -123,8 +123,8 @@ const ORANGE = {
   or85: '#814908',
   or90: '#653906',
   or95: '#482805',
-  or100: '#301B03'
-}
+  or100: '#301B03',
+};
 
 //Green
 const GREEN = {
@@ -142,8 +142,8 @@ const GREEN = {
   gr85: '#1A7031',
   gr90: '#155626',
   gr95: '#0F3D1B',
-  gr100: '#0A2913'
-}
+  gr100: '#0A2913',
+};
 
 //Blue
 const BLUE = {
@@ -161,8 +161,8 @@ const BLUE = {
   b85: '#183272',
   b90: '#132858',
   b95: '#0D1C3F',
-  b100: '#09132A'
-}
+  b100: '#09132A',
+};
 
 //Brown
 const BROWN = {
@@ -180,8 +180,8 @@ const BROWN = {
   br85: '#554634',
   br90: '#423629',
   br95: '#2F271D',
-  br100: '#201A13'
-}
+  br100: '#201A13',
+};
 
 const CYAN = {
   cy1: '#EFFAF9',
@@ -198,8 +198,8 @@ const CYAN = {
   cy85: '#1E6B61',
   cy90: '#18544C',
   cy95: '#103C37',
-  cy100: '#0A2925'
-}
+  cy100: '#0A2925',
+};
 
 const PURPLE = {
   pu1: '#F3EEFB',
@@ -216,22 +216,32 @@ const PURPLE = {
   pu85: '#391871',
   pu90: '#2C1358',
   pu95: '#200D3F',
-  pu100: '#15092A'
-}
+  pu100: '#15092A',
+};
 
-type TPurple = typeof PURPLE
-type TCyan = typeof CYAN
-type TBrown = typeof BROWN
-type TBlue = typeof BLUE
-type TGreen = typeof GREEN
-type TOrange = typeof ORANGE
-type TRed = typeof RED
-type TYellow = typeof YELLOW
-type TBlack = typeof BLACK
-type TWhite = typeof WHITE
-type TNeutralGray = typeof NEUTRAL_GRAY
+type TPurple = typeof PURPLE;
+type TCyan = typeof CYAN;
+type TBrown = typeof BROWN;
+type TBlue = typeof BLUE;
+type TGreen = typeof GREEN;
+type TOrange = typeof ORANGE;
+type TRed = typeof RED;
+type TYellow = typeof YELLOW;
+type TBlack = typeof BLACK;
+type TWhite = typeof WHITE;
+type TNeutralGray = typeof NEUTRAL_GRAY;
 
-export type TColors = TPurple & TCyan & TBrown & TBlue & TGreen & TOrange & TRed & TYellow & TBlack & TWhite & TNeutralGray
+export type TColors = TPurple &
+  TCyan &
+  TBrown &
+  TBlue &
+  TGreen &
+  TOrange &
+  TRed &
+  TYellow &
+  TBlack &
+  TWhite &
+  TNeutralGray;
 
 // @ts-ignore
 const COLORS: TColors = {
@@ -245,8 +255,8 @@ const COLORS: TColors = {
   ...BLUE,
   ...BROWN,
   ...CYAN,
-  ...PURPLE
-}
+  ...PURPLE,
+};
 
 //export all colors
-export default COLORS
+export default COLORS;

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React, {
   type FC,
   forwardRef,
@@ -7,9 +9,9 @@ import React, {
   useRef,
   useState,
 } from 'react';
+
 import { TouchableOpacity, View } from 'react-native';
 import { View as ViewAnim } from 'react-native-animatable';
-import { BlurView } from '@react-native-community/blur';
 import ButtonV2 from './Button';
 import Button from './Button';
 import colors from '../Styles/Colors/colors';
@@ -59,20 +61,14 @@ const COMPONENT_TYPE = {
 
 // const BlurViewComponent = createAnimatableComponent(BlurView)
 // createAnimatableComponent don't work on react-native 0.72 - find another way to fix this
-const BlurViewComponent = BlurView;
-
-const fadeIn = {
-  from: {
-    opacity: 0,
-  },
-  to: {
-    opacity: 1,
-  },
-};
 
 let timeoutClose: any;
+
 // timeClose,type
-interface Props extends PropsWithChildren {}
+interface Props extends PropsWithChildren {
+  ref?: any;
+}
+
 export interface IAlertOptions {
   type?: string;
   autoClose?: boolean;

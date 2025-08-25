@@ -1,7 +1,6 @@
 import Button from './components/Button';
 import Text from './components/Text';
 import Input from './components/Input';
-import EFontSize from './Styles/fontSize';
 
 export function multiply(a: number, b: number): number {
   return a * b;
@@ -9,7 +8,6 @@ export function multiply(a: number, b: number): number {
 
 export * from './context/ThemeContext';
 export * from './Styles';
-
 
 export * from './context/GlobalContext';
 

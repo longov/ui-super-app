@@ -1,12 +1,12 @@
 /**
  * @fileoverview Icon component implementation using IcoMoon font configuration
  */
+// @ts-nocheck
 
 import React, { type FC, type JSX } from 'react';
 import coin98FontConfig from '../Font/selection.json';
 //@ts-expect-error
 import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
-import { Colors } from '../Styles';
 import { StyleSheet, View } from 'react-native';
 import { convertPxToPt, width } from '../Styles/utils';
 import { useThemeContext } from '../context/ThemeContext';

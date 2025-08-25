@@ -1,4 +1,4 @@
-import Colors from './colors'
+import Colors from './colors';
 
 export enum EBorder {
   'BORDER_1' = 'BORDER_1',
@@ -10,7 +10,7 @@ export enum EBorder {
   'BORDER_ACTIVE' = 'BORDER_ACTIVE',
   'BORDER_ALPHA' = 'BORDER_ALPHA',
   'BORDER_ALPHA_INVERSE' = 'BORDER_ALPHA_INVERSE',
-  'BORDER_ALPHA_SUBTLE' = 'BORDER_ALPHA_SUBTLE'
+  'BORDER_ALPHA_SUBTLE' = 'BORDER_ALPHA_SUBTLE',
 }
 
 export const BORDER_COLORS = {
@@ -24,7 +24,7 @@ export const BORDER_COLORS = {
     [EBorder.BORDER_ACTIVE]: Colors.y40,
     [EBorder.BORDER_ALPHA]: Colors.white_a10,
     [EBorder.BORDER_ALPHA_INVERSE]: Colors.black_a10,
-    [EBorder.BORDER_ALPHA_SUBTLE]: Colors.white_a5
+    [EBorder.BORDER_ALPHA_SUBTLE]: Colors.white_a5,
   },
   light: {
     [EBorder.BORDER_1]: Colors.ng10,
@@ -36,6 +36,6 @@ export const BORDER_COLORS = {
     [EBorder.BORDER_ACTIVE]: Colors.y50,
     [EBorder.BORDER_ALPHA]: Colors.black_a10,
     [EBorder.BORDER_ALPHA_INVERSE]: Colors.white_a10,
-    [EBorder.BORDER_ALPHA_SUBTLE]: Colors.black_a5
-  }
-}
+    [EBorder.BORDER_ALPHA_SUBTLE]: Colors.black_a5,
+  },
+};

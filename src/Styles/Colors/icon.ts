@@ -1,4 +1,4 @@
-import Colors from './colors'
+import Colors from './colors';
 
 export enum EIcon {
   'ICON' = 'ICON',
@@ -12,7 +12,7 @@ export enum EIcon {
   'ICON_SUCCEED' = 'ICON_SUCCEED',
   'ICON_ERROR' = 'ICON_ERROR',
   'ICON_WARNING' = 'ICON_WARNING',
-  'ICON_BRAND' = 'ICON_BRAND'
+  'ICON_BRAND' = 'ICON_BRAND',
 }
 
 export const ICON_COLOR = {
@@ -28,7 +28,7 @@ export const ICON_COLOR = {
     [EIcon.ICON_SUCCEED]: Colors.gr60,
     [EIcon.ICON_ERROR]: Colors.r50,
     [EIcon.ICON_WARNING]: Colors.or50,
-    [EIcon.ICON_BRAND]: Colors.y40
+    [EIcon.ICON_BRAND]: Colors.y40,
   },
   light: {
     [EIcon.ICON]: Colors.ng95,
@@ -42,6 +42,6 @@ export const ICON_COLOR = {
     [EIcon.ICON_SUCCEED]: Colors.gr60,
     [EIcon.ICON_ERROR]: Colors.r50,
     [EIcon.ICON_WARNING]: Colors.or50,
-    [EIcon.ICON_BRAND]: Colors.y40
-  }
-}
+    [EIcon.ICON_BRAND]: Colors.y40,
+  },
+};

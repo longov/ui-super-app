@@ -27,7 +27,6 @@ import { EProcess, PROCESS_COLORS } from './Colors/process';
 import FONTS_SIZE from './fontSize';
 import FONTS_WEIGHT from './fontWeight';
 import { ESpacing } from './spacing';
-import EFontSize from './fontSize';
 
 const MYWIDTH = Dimensions.get('window').width;
 
@@ -83,7 +82,6 @@ export const COLORS = {
   ...EButtonColor,
   ...EInputColor,
 };
-
 
 export { FONTS_SIZE, FONTS_WEIGHT, ESpacing };
 
@@ -411,6 +409,7 @@ const useStyles = (themeMode: any) => {
 
       const smallKey = Object.keys(keyValue);
 
+      // eslint-disable-next-line @typescript-eslint/no-shadow
       if (smallKey.find((key) => keyColor.includes(key))) {
         const newKeyValue: Record<string, any> = {};
         smallKey.forEach((inside) => {

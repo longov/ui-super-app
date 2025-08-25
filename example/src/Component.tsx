@@ -1,17 +1,11 @@
 import { View } from 'react-native';
-import { Button, Input, Text, useGlobalContext } from 'react-native-ui-lib-js';
+import { Button, Input, useGlobalContext } from 'react-native-ui-lib-js';
 import { useForm } from 'react-hook-form';
 
 const Test = () => {
-  const { showAlert, openSheet, showToast } = useGlobalContext();
+  const { showToast } = useGlobalContext();
 
-  const {
-    handleSubmit,
-    control,
-    setValue,
-    watch,
-    formState: { errors },
-  } = useForm({
+  const { control } = useForm({
     mode: 'onChange',
     defaultValues: {
       name: 'John Doe',

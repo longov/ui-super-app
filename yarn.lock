@@ -3468,6 +3468,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash@npm:^4.17.20":
+  version: 4.17.20
+  resolution: "@types/lodash@npm:4.17.20"
+  checksum: dc7bb4653514dd91117a4c4cec2c37e2b5a163d7643445e4757d76a360fabe064422ec7a42dde7450c5e7e0e7e678d5e6eae6d2a919abcddf581d81e63e63839
+  languageName: node
+  linkType: hard
+
 "@types/minimist@npm:^1.2.2":
   version: 1.2.5
   resolution: "@types/minimist@npm:1.2.5"
@@ -11328,6 +11335,7 @@ __metadata:
     "@reduxjs/toolkit": ^2.8.2
     "@release-it/conventional-changelog": ^9.0.2
     "@types/jest": ^29.5.5
+    "@types/lodash": ^4.17.20
     "@types/react": ^19.0.12
     commitlint: ^19.6.1
     del-cli: ^5.1.0

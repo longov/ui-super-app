@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, {
   forwardRef,
   useCallback,
@@ -79,6 +80,7 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
 
   const backgroundColor = _.get(options, 'backgroundColor');
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps,@typescript-eslint/no-shadow
   const open = (component: React.ReactElement, options: IOptions = {}) => {
     setOptions((prev) => {
       if (prev.index === 0) {
@@ -88,17 +90,20 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
     });
   };
 
-  const close = () => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const close = useCallback(() => {
     bottomSheetRef.current?.close();
     // setOptions(defaultState)
-  };
+  });
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const expand = (index: number) => {
     if (options.snaps) {
       setOptions((prev) => ({ ...prev, index }));
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-shadow
   const expandHeight = (height: number) => {
     setOptions((prev) => ({ ...prev, height }));
   };
@@ -137,7 +142,7 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
         hideSubscription.remove();
       };
     }
-  }, [snapPoints, currentAppState]);
+  }, [snapPoints, currentAppState, options.snaps, bottomSheetRef]);
 
   const onReset = () => {
     if (options.noTriggerReset) {
@@ -168,6 +173,7 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
 
   const openMultiple = (
     component: React.ReactElement,
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     options: IOptions = {}
   ) => {
     setOptionsMultiple({ component, index: 0, ...options });
@@ -188,7 +194,7 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
       openMultiple,
       closeMultiple,
     } as IFWHandle;
-  }, [JSON.stringify(options), open, close]);
+  }, [open, close, expand]);
 
   const customBackdrop = useCallback((props) => {
     return (

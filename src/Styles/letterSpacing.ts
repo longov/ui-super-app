@@ -1,4 +1,3 @@
-
 export enum ELetterSpacing {
   normal = 'normal',
   tight = '-0.2',
