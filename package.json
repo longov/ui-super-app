@@ -122,6 +122,7 @@
       }
     }
   },
+  "private": true,
   "prettier": {
     "quoteProps": "consistent",
     "singleQuote": true,
