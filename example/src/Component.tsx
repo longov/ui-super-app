@@ -1,6 +1,7 @@
 import { View } from 'react-native';
 import { Button, Input, useGlobalContext } from 'react-native-ui-lib-js';
 import { useForm } from 'react-hook-form';
+import WebView from 'react-native-webview';
 
 const Test = () => {
   const { showToast } = useGlobalContext();
@@ -29,16 +30,12 @@ const Test = () => {
   };
 
   return (
-    <View>
-      <Button onPress={onPress} title={'show Alert'} />
-      <Input
-        options={{
-          isSearch: true,
-        }}
-        control={control}
-        name={'name'}
-      />
-    </View>
+    <WebView
+      style={{
+        flex: 1,
+      }}
+      source={{ uri: 'https://expo.dev' }}
+    />
   );
 };
 
