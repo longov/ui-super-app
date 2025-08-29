@@ -12,6 +12,7 @@
     },
     "./package.json": "./package.json"
   },
+  "private": "true",
   "files": [
     "src",
     "lib",
@@ -77,8 +78,8 @@
     "eslint-plugin-prettier": "^5.2.3",
     "jest": "^29.7.0",
     "prettier": "^3.0.3",
-    "react": "19.0.0",
-    "react-native": "0.79.6",
+    "react": "18.3.1",
+    "react-native": "0.75.4",
     "react-native-builder-bob": "^0.40.13",
     "release-it": "^17.10.0",
     "typescript": "^5.8.3"
@@ -90,7 +91,6 @@
   "workspaces": [
     "example"
   ],
-  "packageManager": "yarn@3.6.1",
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
@@ -153,7 +153,7 @@
     "version": "0.52.1"
   },
   "dependencies": {
-    "@gorhom/bottom-sheet": "^5.2.3",
+    "@gorhom/bottom-sheet": "^4.6.4",
     "@react-native-community/blur": "^4.4.1",
     "@reduxjs/toolkit": "^2.8.2",
     "lodash": "^4.17.21",
