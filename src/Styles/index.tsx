@@ -1,4 +1,4 @@
-import { Dimensions, PixelRatio, StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 import {
   BACKGROUND,
   BORDER_COLORS,
@@ -21,17 +21,13 @@ import {
   SHEET_COLORS,
   TAB_COLOR,
   TEXT_COLOR,
-  TOAST,
-} from './Colors';
-import { EProcess, PROCESS_COLORS } from './Colors/process';
-import FONTS_SIZE from './fontSize';
-import FONTS_WEIGHT from './fontWeight';
-import { ESpacing } from './spacing';
-
-const MYWIDTH = Dimensions.get('window').width;
-
-const width = (num: number) =>
-  PixelRatio.roundToNearestPixel(MYWIDTH * (num / 100));
+  TOAST
+} from "./Colors";
+import { EProcess, PROCESS_COLORS } from "./Colors/process";
+import FONTS_SIZE from "./fontSize";
+import FONTS_WEIGHT from "./fontWeight";
+import { ESpacing } from "./spacing";
+import { width } from "./utils";
 
 //Enum for the different TextStyles
 export enum TEXT_TITLE {
