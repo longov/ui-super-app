@@ -19,6 +19,7 @@ import { height, ios, width } from '../Styles/utils';
 import useAppState from '../Hooks/useAppState';
 import { useThemeContext } from '../context/ThemeContext';
 import _ from 'lodash';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface IProps {}
 export enum BottomSheetEvent {
@@ -37,6 +38,7 @@ export interface IOptions {
   onReset?: () => void;
   backgroundColor?: string;
   isMultiple?: boolean;
+  isChildBottomSheet?: boolean;
 }
 
 export interface IFWHandle {
@@ -225,12 +227,15 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
     return freezedObject;
   }, []);
 
+  const insets = useSafeAreaInsets();
+
   return (
     <>
       <BottomSheet
         animationConfigs={animationConfigs}
         handleStyle={styles.handleStyle}
         handleIndicatorStyle={styles.indicatorStyle}
+        bottomInset={options.isChildBottomSheet || ios ? 0 : insets.bottom}
         key={`BottomSheet${themeMode}`}
         style={{ zIndex: Number.MAX_SAFE_INTEGER }}
         backdropComponent={customBackdrop}
@@ -262,6 +267,7 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
           backdropComponent={customBackdrop}
           handleStyle={styles.handleStyle}
           onClose={onResetMultiple}
+          bottomInset={ios ? 0 : insets.bottom}
           handleIndicatorStyle={styles.indicatorStyle}
           ref={useMultipleBottomSheet2}
           index={optionsMultiple.index}
