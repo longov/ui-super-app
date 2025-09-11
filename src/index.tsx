@@ -1,7 +1,7 @@
 import Button from './components/Button';
 import Text from './components/Text';
 import Input from './components/Input';
-
+import Token from './components/Token';
 
 export * from './context/ThemeContext';
 export * from './Styles';
@@ -12,4 +12,4 @@ export * from './components/Modal';
 
 export * from './Styles/utils';
 
-export { Button, Text, Input };
+export { Button, Text, Input, Token };
