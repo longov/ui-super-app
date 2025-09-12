@@ -84,10 +84,7 @@
     "release-it": "^17.10.0",
     "typescript": "^5.8.3"
   },
-  "peerDependencies": {
-    "react": "*",
-    "react-native": "*"
-  },
+
   "workspaces": [
     "example"
   ],
@@ -166,5 +163,9 @@
     "react-native-safe-area-context": "^5.6.1",
     "react-redux": "^9.2.0",
     "@candlefinance/faster-image": "1.7.2"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
   }
 }
