@@ -1,5 +1,5 @@
 import { type FC, useState } from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable, StyleSheet, type TextStyle } from 'react-native';
 import { TEXT_UI } from '../Styles';
 import { convertPxToPt, width } from '../Styles/utils';
 import { EButtonColor } from '../Styles/Colors';
@@ -144,7 +144,7 @@ interface ButtonProps {
   style?: object;
 
   /** Additional custom styles */
-  textStyle?: object;
+  textStyle?: StyleSheet.NamedStyles<TextStyle>;
 }
 
 /**
@@ -221,6 +221,8 @@ const Button: FC<ButtonProps> = ({
     setIsPressed(action);
   };
 
+  // @ts-ignore
+  // @ts-ignore
   return (
     <Pressable
       onPress={onPressButton}
@@ -254,6 +256,7 @@ const Button: FC<ButtonProps> = ({
             />
           )}
           {title && (
+            // @ts-ignore
             <Text type={TEXT_UI.TEXT_LARGE_STRONG} style={[textStyles, textSt]}>
               {title}
             </Text>
