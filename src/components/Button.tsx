@@ -142,6 +142,9 @@ interface ButtonProps {
 
   /** Additional custom styles */
   style?: object;
+
+  /** Additional custom styles */
+  textStyle?: object;
 }
 
 /**
