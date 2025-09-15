@@ -168,6 +168,7 @@ const Button: FC<ButtonProps> = ({
   widthSize = width(90),
   height,
   style,
+  textStyle: textSt,
   onPress,
 }) => {
   const { useTheme, getThemeMode, textUI } = useThemeContext();
@@ -226,8 +227,8 @@ const Button: FC<ButtonProps> = ({
       style={[
         styles.buttonContainer,
         buttonStyle,
-        style,
         isPressed && { backgroundColor: buttonColorActive },
+        style,
       ]}
     >
       {loading ? (
@@ -243,15 +244,23 @@ const Button: FC<ButtonProps> = ({
       ) : (
         <>
           {prefixIcon && (
-            <Icon name={prefixIcon} size={iconSize} color={textStyles.color} />
+            <Icon
+              name={prefixIcon}
+              size={iconSize}
+              color={textSt?.color ? textSt.color : textStyles.color}
+            />
           )}
           {title && (
-            <Text type={TEXT_UI.TEXT_LARGE_STRONG} style={textStyles}>
+            <Text type={TEXT_UI.TEXT_LARGE_STRONG} style={[textStyles, textSt]}>
               {title}
             </Text>
           )}
           {endIcon && (
-            <Icon name={endIcon} size={iconSize} color={textStyles.color} />
+            <Icon
+              name={endIcon}
+              size={iconSize}
+              color={textSt?.color ? textSt.color : textStyles.color}
+            />
           )}
         </>
       )}
