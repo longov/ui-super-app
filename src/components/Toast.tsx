@@ -89,7 +89,7 @@ const Toast = forwardRef<RefAction, Props>((_props, ref) => {
     if (_.get(options, 'message')) {
       return;
     }
-    setOptions(_.clone({ message: message.toString() }, passProps));
+    setOptions({ message: message.toString(), ...passProps });
     // const autoClose = get(passProps, 'autoClose', true)
     // const isConfirmErr = get(passProps, 'type') === ALERT_TYPE.confirm || get(passProps, 'type') === ALERT_TYPE.error
     // if (!isConfirmErr && autoClose) {
