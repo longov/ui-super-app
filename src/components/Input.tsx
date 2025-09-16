@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { type FieldError, get, useController } from 'react-hook-form';
 import { COLORS, FONTS_SIZE, TEXT_UI } from '../Styles';
-import { type FC, useState } from 'react';
+import React, { type FC, useState } from 'react';
 import {
   Keyboard,
   TextInput,
@@ -35,6 +35,7 @@ export interface InputProps extends TextInputProps {
   control: any;
   borderError?: boolean;
   clearable?: boolean;
+  endView?: React.ReactNode;
 }
 
 const TouchableOpacityAnim = Animated.createAnimatedComponent(TouchableOpacity);
@@ -262,6 +263,9 @@ const Input: FC<Partial<InputProps>> = ({ name = '', control, ...props }) => {
               <Icon name="app_close" />
             </TouchableOpacity>
           ) : null}
+          {
+            get(options, 'endView') //&& get(options, 'endView')
+          }
         </ViewAnim>
         {isSearchStatus && !get(options, 'isMinimal') && isViewSearch && (
           <TouchableOpacityAnim
