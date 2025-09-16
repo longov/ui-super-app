@@ -55,6 +55,7 @@ interface Options {
   title: string;
   subActionTitle?: string;
   timeClose?: number;
+  iconComponent?: React.ReactNode;
 }
 
 interface PassProps {
@@ -145,10 +146,14 @@ const Toast = forwardRef<RefAction, Props>((_props, ref) => {
         onTouchStart={onDismissAlertWithPress}
       >
         <View style={styles.leftContainer}>
-          <Icon
-            name={options.icon || 'app_copy'}
-            color={_.get(componentModule, 'color', 'GREEN')}
-          />
+          {_.get(options, 'iconComponent') ? (
+            _.get(options, 'iconComponent')
+          ) : (
+            <Icon
+              name={options.icon || 'app_copy'}
+              color={_.get(componentModule, 'color', 'GREEN')}
+            />
+          )}
         </View>
         <View style={styles.flex1}>
           {!!options.title && (

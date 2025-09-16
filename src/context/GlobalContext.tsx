@@ -4,7 +4,7 @@ import {
   type IFWHandle,
   type IOptions,
 } from '../components/BottomSheet';
-import { type IModalOption } from '../components/Modal';
+import Modal, { type IModalOption } from '../components/Modal';
 import React, { type FC, type PropsWithChildren, useMemo, useRef } from 'react';
 import Toast from '../components/Toast';
 
@@ -219,6 +219,7 @@ export const GlobalProvider: FC<
   return (
     <GlobalContext.Provider value={value}>
       {children}
+      <Modal ref={refModal as any} />
       <Alert ref={alertRef as any} />
       <Toast ref={toastRef as unknown as any} />
       <BottomSheetV3 ref={refBottomSheet as any} />
