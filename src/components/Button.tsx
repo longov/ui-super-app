@@ -1,4 +1,4 @@
-import { type FC, useState } from 'react';
+import { type FC, type ReactNode, useState } from 'react';
 import { Pressable, StyleSheet, type TextStyle } from 'react-native';
 import { TEXT_UI } from '../Styles';
 import { convertPxToPt, width } from '../Styles/utils';
@@ -7,7 +7,6 @@ import LottieView from 'lottie-react-native';
 import images from '../images';
 import EBorderSize from '../Styles/borderSize';
 import Text from './Text';
-import Icon from './Icon';
 import { useThemeContext } from '../context/ThemeContext';
 
 /** Button height measurements in PT units */
@@ -128,9 +127,9 @@ interface ButtonProps {
   /** Whether button is part of a group */
   isGroup?: boolean;
   /** Icon name to show before title */
-  prefixIcon?: string;
+  prefixComponent?: ReactNode;
   /** Icon name to show after title */
-  endIcon?: string;
+  endComponent?: string;
   /** Custom button width override */
   widthSize?: number;
   /** Custom button height override */
@@ -165,8 +164,8 @@ const Button: FC<ButtonProps> = ({
   disabled = false,
   level = 'primary',
   kind = 'default',
-  prefixIcon,
-  endIcon,
+  prefixComponent,
+  endComponent,
   disabledPressBehavior,
   widthSize = width(90),
   height,
@@ -248,26 +247,28 @@ const Button: FC<ButtonProps> = ({
         />
       ) : (
         <>
-          {prefixIcon && (
-            <Icon
-              name={prefixIcon}
-              size={iconSize}
-              color={textSt?.color ? textSt.color : textStyles.color}
-            />
-          )}
+          {
+            prefixComponent && prefixComponent
+            // <Icon
+            //   name={prefixIcon}
+            //   size={iconSize}
+            //   color={textSt?.color ? textSt.color : textStyles.color}
+            // />
+          }
           {title && (
             // @ts-ignore
             <Text type={TEXT_UI.TEXT_LARGE_STRONG} style={[textStyles, textSt]}>
               {title}
             </Text>
           )}
-          {endIcon && (
-            <Icon
-              name={endIcon}
-              size={iconSize}
-              color={textSt?.color ? textSt.color : textStyles.color}
-            />
-          )}
+          {
+            endComponent && endComponent
+            // <Icon
+            //   name={endIcon}
+            //   size={iconSize}
+            //   color={textSt?.color ? textSt.color : textStyles.color}
+            // />
+          }
         </>
       )}
       {/*{get(options, 'icon') && <View style={[styles.paddingIcon, get(options, 'iconStyle')]}>{get(options, 'icon')}</View>}*/}
