@@ -147,6 +147,7 @@ interface ButtonProps {
   textStyle?: StyleSheet.NamedStyles<TextStyle>;
 
   prefixComponent?: ReactNode;
+
   endComponent?: ReactNode;
 }
 
@@ -244,6 +245,7 @@ const Button: FC<ButtonProps> = ({
       {loading ? (
         <LottieView
           style={{
+            flex:1,
             width: iconSize * 1.5,
             height: iconSize * 1.5,
           }}
