@@ -133,7 +133,7 @@ const PriceRender: FC<Props> = ({
   onPress,
   onDoublePress,
   type,
-  isFiat,
+  isFiat = false,
   postfix,
   color = EText.TEXT,
   prefix,
@@ -213,6 +213,7 @@ const PriceRender: FC<Props> = ({
           {formatBillion(
             props.value,
             Math.min(_minNumber, numberShow),
+            isFiat,
             isAmount
           )}
           {postfix}

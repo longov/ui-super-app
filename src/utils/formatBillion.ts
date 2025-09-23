@@ -1,7 +1,12 @@
 // @ts-ignore
 import cFunctions from '@coin98/common';
 
-const formatBillion = (labelValue: number, mssa = 2, isAmount = false) => {
+const formatBillion = (
+  labelValue: number,
+  mssa = 2,
+  isFiat: boolean,
+  isAmount = false
+) => {
   // Nine Zeroes for Billions
   let mantissa = mssa;
   if (mssa === 0) {
@@ -39,12 +44,14 @@ const formatBillion = (labelValue: number, mssa = 2, isAmount = false) => {
                 ) + 'M'
               : // Three Zeroes for Thousands
                 // ko hieu viet cho nay
-                Math.abs(Number(labelValue)) >= 1.0e3
-                ? cFunctions.formatNumberBro(
-                    Math.abs(Number(labelValue)) / 1.0e3,
-                    mantissa
-                  ) + 'K'
-                : cFunctions.formatNumberBro(labelValue, mantissa);
+                isFiat
+                ? cFunctions.formatNumberBro(labelValue, mantissa)
+                : Math.abs(Number(labelValue)) >= 1.0e3
+                  ? cFunctions.formatNumberBro(
+                      Math.abs(Number(labelValue)) / 1.0e3,
+                      mantissa
+                    ) + 'K'
+                  : cFunctions.formatNumberBro(labelValue, mantissa);
 
   return numFormat === 'N/A' ? '' : numFormat;
 };
