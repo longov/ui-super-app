@@ -23,6 +23,7 @@ import _ from 'lodash';
 import Icon from './Icon';
 import { height, ios, topNavBarIOS, width } from '../Styles/utils';
 import { useThemeContext } from '../context/ThemeContext';
+import { BottomSheetV3, type IOptions } from './BottomSheet';
 
 interface IModalBoxProps {
   callBack?: () => void;
@@ -61,15 +62,9 @@ const ModalBox: ModalBoxComponent = (props, ref) => {
   const toastRef = useRef<ToastProps>(null);
   const [options, setOptions] = useState<IModalOption>({});
   const [keyboardStatus, setKeyboardStatus] = useState(false);
+  const refBottomSheet = useRef<BottomSheetV3>(null);
 
   const noActionCloseBackground = _.get(options, 'isConfirmModal');
-
-  useImperativeHandle(ref, () => ({
-    open,
-    close,
-    setMessage,
-    openToast,
-  }));
 
   useEffect(() => {
     const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
@@ -99,6 +94,16 @@ const ModalBox: ModalBoxComponent = (props, ref) => {
     toastRef?.current?.open(message, passProps);
   };
 
+  const openSheet = (
+    component: React.ReactElement<any>,
+    options?: IOptions
+  ) => {
+    refBottomSheet.current?.open(component, options);
+  };
+  const closeSheet = () => {
+    refBottomSheet.current?.close();
+  };
+
   const close = () => {
     !!props.callBack && props.callBack();
     options?.onClose && options.onClose();
@@ -106,6 +111,16 @@ const ModalBox: ModalBoxComponent = (props, ref) => {
     setChildren(null);
     Keyboard.dismiss();
   };
+
+  useImperativeHandle(ref, () => ({
+    open,
+    close,
+    setMessage,
+    openToast,
+    closeSheet,
+    openSheet,
+  }));
+
   // @ts-ignore
   return (
     <Modal
@@ -165,6 +180,7 @@ const ModalBox: ModalBoxComponent = (props, ref) => {
       ) : (
         <></>
       )}
+      <BottomSheetV3 ref={refBottomSheet as any} />
       {/*</HoldMenuProvider>*/}
     </Modal>
   );
