@@ -9,3 +9,5 @@ export * from './Token';
 export * from './Callout';
 export * from './Switch';
 export * from './ImageRender';
+
+export * from './PriceRender';
