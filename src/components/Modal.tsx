@@ -168,6 +168,7 @@ const ModalBox: ModalBoxComponent = (props, ref) => {
             {children}
           </KeyboardAvoidingView>
         )}
+        <BottomSheetV3 ref={refBottomSheet as any} />
       </BlurView>
       {keyboardStatus ? (
         <KeyboardAvoidingView behavior="padding">
@@ -180,7 +181,6 @@ const ModalBox: ModalBoxComponent = (props, ref) => {
       ) : (
         <></>
       )}
-      <BottomSheetV3 ref={refBottomSheet as any} />
       {/*</HoldMenuProvider>*/}
     </Modal>
   );
