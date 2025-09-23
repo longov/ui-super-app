@@ -20,6 +20,10 @@ interface ModalProps {
   openToast(msg: string, passProps: any): void;
   //set message for toast
   setMessage(msg: string, passProps: any): void;
+
+  openSheet(component: React.ReactElement<any>, options?: IOptions): void;
+
+  closeSheet(): void;
 }
 
 interface AlertProps {
@@ -77,6 +81,13 @@ const GlobalContext = React.createContext({
   closeSheet: () => {},
   closeModal: () => {},
   showToastModal: (_msg: string, _passProps: any) => {},
+
+  showBottomSheetModal: (
+    _component: React.ReactElement<any>,
+    _options?: IOptions
+  ) => {},
+
+  closeBottomSheetModal: () => {},
 });
 
 export const GlobalProvider: FC<
@@ -179,6 +190,20 @@ export const GlobalProvider: FC<
       refModal.current?.openToast(msg, passProps);
     }
   };
+  const showBottomSheetModal = (
+    component: React.ReactElement<any>,
+    options?: IOptions
+  ) => {
+    if (refModal.current) {
+      refModal.current?.openSheet(component, options);
+    }
+  };
+
+  const closeBottomSheetModal = () => {
+    if (refModal.current) {
+      refModal.current?.closeSheet();
+    }
+  };
   // PRE: new BottomSheetV5 next point and navigation
   // const openSheetV2Modal = (component: React.ReactNode, options?: any) => {
   //   refBottomSheetV5.current?.open(component, options)
@@ -207,6 +232,9 @@ export const GlobalProvider: FC<
       openZenModal,
       closeZenModal,
       refBottomSheet,
+
+      showBottomSheetModal,
+      closeBottomSheetModal,
 
       // openSheetV2Modal,
       // closeSheetV2Modal,
