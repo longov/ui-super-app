@@ -32,7 +32,7 @@ export const INPUT_COLOR = {
     [EInputColor.FIELD_BORDER]: Colors.black_a5,
     [EInputColor.FIELD_BORDER_ERROR]: Colors.r50,
     [EInputColor.FIELD_CARET]: Colors.y60,
-    [EInputColor.FIELD_BACKGROUND]: Colors.black_a5,
+    [EInputColor.FIELD_BACKGROUND]: Colors.black_a3,
     [EInputColor.FIELD_BACKGROUND_DISABLED]: Colors.ng5,
   },
 };
