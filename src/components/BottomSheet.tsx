@@ -57,7 +57,7 @@ const defaultState = {
 export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
   const bottomSheetRef = React.createRef<BottomSheet>();
   const { useTheme, themeMode, getThemeMode } = useThemeContext();
-  const styles = useTheme('BottomSheetV3.1', style);
+  const styles = useTheme('LibBottomSheetV3.1', style);
   const appColor = getThemeMode('color');
   const useMultipleBottomSheet2 = useRef<BottomSheet>(null);
 

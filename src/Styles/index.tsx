@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 import {
   BACKGROUND,
   BORDER_COLORS,
@@ -21,13 +21,13 @@ import {
   SHEET_COLORS,
   TAB_COLOR,
   TEXT_COLOR,
-  TOAST
-} from "./Colors";
-import { EProcess, PROCESS_COLORS } from "./Colors/process";
-import FONTS_SIZE from "./fontSize";
-import FONTS_WEIGHT from "./fontWeight";
-import { ESpacing } from "./spacing";
-import { width } from "./utils";
+  TOAST,
+} from './Colors';
+import { EProcess, PROCESS_COLORS } from './Colors/process';
+import FONTS_SIZE from './fontSize';
+import FONTS_WEIGHT from './fontWeight';
+import { ESpacing } from './spacing';
+import { width } from './utils';
 
 //Enum for the different TextStyles
 export enum TEXT_TITLE {
@@ -375,7 +375,7 @@ const useStyles = (themeMode: any) => {
 
   const createTheme = (styles: Record<string, any>, key: string) => {
     const themeModeRedux = themeMode;
-    const keyTheme = key + themeModeRedux;
+    const keyTheme = 'lib' + key + themeModeRedux;
 
     // if (!isDev) {
     //   if (key) {
