@@ -64,7 +64,8 @@ const Input: FC<Partial<InputProps>> = ({ name = '', control, ...props }) => {
     name,
   });
 
-  const { useTheme, getThemeMode, textDefault, themeMode } = useThemeContext();
+  const { useTheme, getThemeMode, textDefault, themeMode, convertLang } =
+    useThemeContext();
 
   const colors = getThemeMode('color');
 
@@ -273,7 +274,7 @@ const Input: FC<Partial<InputProps>> = ({ name = '', control, ...props }) => {
             animation={'fadeIn'}
             onPress={onCancelSearch}
           >
-            <Text style={styles.fontCancel}>{'cancel'}</Text>
+            <Text style={styles.fontCancel}>{convertLang('cancel')}</Text>
           </TouchableOpacityAnim>
         )}
       </View>

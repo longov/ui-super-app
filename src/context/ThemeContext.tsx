@@ -28,8 +28,9 @@ const ThemeContext = React.createContext({
 export const ThemeProvider: FC<
   PropsWithChildren<{
     themeMode?: string;
+    language?: Function;
   }>
-> = ({ themeMode, children }) => {
+> = ({ themeMode, language, children }) => {
   const { createTheme, getTheme, textUI, textTitle, textDefault } =
     useStyles(themeMode);
 
@@ -40,6 +41,8 @@ export const ThemeProvider: FC<
     },
     [createTheme]
   );
+  const convertLang = (key: string, params?: any) =>
+    language ? language(key, params) : key;
 
   const getThemeMode = React.useCallback(
     (name: string) => {
@@ -55,8 +58,10 @@ export const ThemeProvider: FC<
       textUI,
       textTitle,
       textDefault,
+      convertLang,
       themeMode: themeMode || 'dark',
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [useTheme, getThemeMode, textUI, textTitle, textDefault, themeMode]
   );
   return (
