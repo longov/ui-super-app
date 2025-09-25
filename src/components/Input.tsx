@@ -36,6 +36,7 @@ export interface InputProps extends TextInputProps {
   borderError?: boolean;
   clearable?: boolean;
   endView?: React.ReactNode;
+  clearableAction: () => void;
 }
 
 const TouchableOpacityAnim = Animated.createAnimatedComponent(TouchableOpacity);
@@ -56,6 +57,7 @@ const Input: FC<Partial<InputProps>> = ({ name = '', control, ...props }) => {
     borderError = true,
     defaultValue = '',
     clearable = false,
+    clearableAction,
   } = props;
 
   const { field } = useController({
@@ -135,6 +137,7 @@ const Input: FC<Partial<InputProps>> = ({ name = '', control, ...props }) => {
   };
 
   const onClearInput = () => {
+    clearableAction?.();
     field.onChange('');
     // field.
   };

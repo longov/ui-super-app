@@ -7,6 +7,7 @@ import {
 import Modal, { type IModalOption } from '../components/Modal';
 import React, { type FC, type PropsWithChildren, useMemo, useRef } from 'react';
 import Toast from '../components/Toast';
+import ToastServices from './ToastContext';
 
 // import {BottomSheetV5} from 'common/Layout/V2/BottomSheet'
 
@@ -245,13 +246,15 @@ export const GlobalProvider: FC<
 
   // @ts-ignore
   return (
-    <GlobalContext.Provider value={value}>
-      {children}
-      <Modal ref={refModal as any} />
-      <Alert ref={alertRef as any} />
-      <Toast ref={toastRef as unknown as any} />
-      <BottomSheetV3 ref={refBottomSheet as any} />
-    </GlobalContext.Provider>
+    <ToastServices>
+      <GlobalContext.Provider value={value}>
+        {children}
+        <Modal ref={refModal as any} />
+        <Alert ref={alertRef as any} />
+        <Toast ref={toastRef as unknown as any} />
+        <BottomSheetV3 ref={refBottomSheet as any} />
+      </GlobalContext.Provider>
+    </ToastServices>
   );
 };
 
