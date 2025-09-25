@@ -10,6 +10,8 @@ export * from './Styles';
 
 export * from './context/GlobalContext';
 
+export * from './context/ToastContext';
+
 export * from './components/Modal';
 
 export * from './Styles/utils';
