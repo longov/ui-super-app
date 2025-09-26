@@ -12,11 +12,10 @@ import BottomSheet, {
   ANIMATION_CONFIGS,
   BottomSheetBackdrop,
 } from '@gorhom/bottom-sheet';
-import { BackHandler, Keyboard, StyleSheet, View } from 'react-native';
+import { BackHandler, InteractionManager, Keyboard, StyleSheet, View } from 'react-native';
 import { ReduceMotion } from 'react-native-reanimated';
 import { EBottomSheet } from '../Styles/Colors';
 import { height, ios, width } from '../Styles/utils';
-import { useKeyboard } from '../Hooks/useKeyboard'
 import useAppState from '../Hooks/useAppState';
 import { useThemeContext } from '../context/ThemeContext';
 import _ from 'lodash';
@@ -55,13 +54,20 @@ const defaultState = {
   index: -1,
 } as IOptions;
 
+
 export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
   const bottomSheetRef = React.createRef<BottomSheet>();
   const { useTheme, themeMode, getThemeMode } = useThemeContext();
   const styles = useTheme('LibBottomSheetV3.1', style);
   const appColor = getThemeMode('color');
   const useMultipleBottomSheet2 = useRef<BottomSheet>(null);
-  const { keyboardStatus, keyboardHeight } = useKeyboard();
+
+
+  const refKeyboardHeight = useRef(0);
+  const refKeyboardActive = useRef(false)
+
+
+
 
   const currentAppState = useAppState();
 
@@ -74,6 +80,9 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
     () => (options.height ? [options.height] : options.snaps || ['90%']),
     [options.snaps, options.height]
   );
+
+  // const useSnapPoints = keyboardStatus ? [] : snapPoints;
+  
   const snapPointsMulti = useMemo(
     () =>
       optionsMultiple.height
@@ -89,9 +98,17 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
     setOptions((prev) => {
       if (prev.index === 0) {
         bottomSheetRef.current?.snapToIndex(0);
+        if(refKeyboardActive.current){
+          const heightWithKeyboard = options.height > 0 ? options.height + refKeyboardHeight.current : options.height;
+          if(heightWithKeyboard > 0){
+            bottomSheetRef.current?.snapToPosition(heightWithKeyboard);
+          }
+        }
       }
-      return { component, index: 0, ...options };
+
+      return { component, index: 0, ...options};
     });
+
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -127,6 +144,21 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
   }, [bottomSheetRef]);
 
   useEffect(() => {
+    const kbShow = Keyboard.addListener('keyboardDidShow', (e) => {
+      refKeyboardActive.current = true;
+      refKeyboardHeight.current = e.endCoordinates.height;
+    });
+    const kbHide = Keyboard.addListener('keyboardDidHide', () => {
+      refKeyboardActive.current = false;
+      refKeyboardHeight.current = 0;
+    });
+    return () => {
+      kbShow.remove();
+      kbHide.remove();
+    }
+  },[])
+  
+  useEffect(() => {
     if (currentAppState === 'active') {
       const showSubscription = Keyboard.addListener('keyboardWillShow', () => {
         if (options.snaps && ios) {
@@ -147,17 +179,6 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
       };
     }
   }, [snapPoints, currentAppState, options.snaps, bottomSheetRef]);
-
-
-  useEffect(() => {
-    if(keyboardStatus && options.index > -1) {
-      const maxHeight = snapPoints[snapPoints.length - 1];
-      const newTargetHeight = maxHeight + keyboardHeight;
-      console.error(`🐳 -> newTargetHeight:`, newTargetHeight)
-      bottomSheetRef.current?.snapToPosition(newTargetHeight);
-    } 
-  },[keyboardStatus,snapPoints, options])
-
 
   const onReset = () => {
     if (options.noTriggerReset) {
@@ -230,6 +251,23 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
   }, []);
 
   const { index } = options;
+
+
+  const onTriggerKeyboard = () => {
+    if(index >=0 ){
+      setTimeout(() => {
+        const keyboardHeight = refKeyboardActive.current ? refKeyboardHeight.current : 0;
+        const heightWithKeyboard = options.height > 0 ? options.height + keyboardHeight : options.height;
+        console.error('onTriggerKeyboard', heightWithKeyboard, keyboardHeight, refKeyboardActive.current);
+        bottomSheetRef.current?.snapToPosition(heightWithKeyboard);
+      } , 0)
+    }
+    
+  }
+
+  useEffect(() => {
+    onTriggerKeyboard()
+  }, [index])
 
   //Fix Reaniamted Warning && Better performance
   //Stop library to modify sharedWorklet value;
