@@ -16,6 +16,7 @@ import { BackHandler, Keyboard, StyleSheet, View } from 'react-native';
 import { ReduceMotion } from 'react-native-reanimated';
 import { EBottomSheet } from '../Styles/Colors';
 import { height, ios, width } from '../Styles/utils';
+import { useKeyboard } from '../Hooks/useKeyboard'
 import useAppState from '../Hooks/useAppState';
 import { useThemeContext } from '../context/ThemeContext';
 import _ from 'lodash';
@@ -60,6 +61,7 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
   const styles = useTheme('LibBottomSheetV3.1', style);
   const appColor = getThemeMode('color');
   const useMultipleBottomSheet2 = useRef<BottomSheet>(null);
+  const { keyboardStatus, keyboardHeight } = useKeyboard();
 
   const currentAppState = useAppState();
 
@@ -145,6 +147,17 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
       };
     }
   }, [snapPoints, currentAppState, options.snaps, bottomSheetRef]);
+
+
+  useEffect(() => {
+    if(keyboardStatus && options.index > -1) {
+      const maxHeight = snapPoints[snapPoints.length - 1];
+      const newTargetHeight = maxHeight + keyboardHeight;
+      console.error(`🐳 -> newTargetHeight:`, newTargetHeight)
+      bottomSheetRef.current?.snapToPosition(newTargetHeight);
+    } 
+  },[keyboardStatus,snapPoints, options])
+
 
   const onReset = () => {
     if (options.noTriggerReset) {
