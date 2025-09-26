@@ -39,6 +39,7 @@ export interface IOptions {
   backgroundColor?: string;
   isMultiple?: boolean;
   isChildBottomSheet?: boolean;
+  isKeyboardAware?: boolean;
 }
 
 export interface IFWHandle {
@@ -98,7 +99,7 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
     setOptions((prev) => {
       if (prev.index === 0) {
         bottomSheetRef.current?.snapToIndex(0);
-        if(refKeyboardActive.current){
+        if(refKeyboardActive.current && !!options.isKeyboardAware){
           const heightWithKeyboard = options.height > 0 ? options.height + refKeyboardHeight.current : options.height;
           if(heightWithKeyboard > 0){
             bottomSheetRef.current?.snapToPosition(heightWithKeyboard);
@@ -254,16 +255,17 @@ export const BottomSheetV3 = forwardRef<IFWHandle, IProps>((_props, ref) => {
 
 
   const onTriggerKeyboard = () => {
-    if(index >=0 ){
+    if(index >=0 && !!options.isKeyboardAware){
       setTimeout(() => {
         const keyboardHeight = refKeyboardActive.current ? refKeyboardHeight.current : 0;
         const heightWithKeyboard = options.height > 0 ? options.height + keyboardHeight : options.height;
         console.error('onTriggerKeyboard', heightWithKeyboard, keyboardHeight, refKeyboardActive.current);
         bottomSheetRef.current?.snapToPosition(heightWithKeyboard);
-      } , 0)
+      } ,0)
     }
     
   }
+
 
   useEffect(() => {
     onTriggerKeyboard()
